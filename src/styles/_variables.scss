@@ -1,0 +1,47 @@
+
+@forward "sass:math";
+@forward "sass:color";
+
+$primary: #6c63ff;
+$secondary: #4db5ff;
+$dark: #212121;
+$light: #f8f9fa;
+$text-color: #333;
+$bg-color: #f9f9f9;
+$bg-secondary: #f0f0f0;
+$border-color: #e0e0e0;
+$shadow-color: rgba(0, 0, 0, 0.1);
+$glass-bg: rgba(255, 255, 255, 0.7);
+$glass-border: rgba(255, 255, 255, 0.3);
+
+$font-family-base: 'Inter', sans-serif;
+$font-size-base: 1rem;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$line-height-base: 1.5;
+
+$transition-speed: 0.3s;
+$blur-strength: 8px;
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4.5,
+);
+
+$border-radius-sm: 0.25rem;
+$border-radius: 0.5rem;
+$border-radius-lg: 1rem;
+$border-radius-xl: 1.5rem;
+
+:export {
+  primary: $primary;
+  secondary: $secondary;
+  dark: $dark;
+  light: $light;
+} 

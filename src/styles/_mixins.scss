@@ -1,0 +1,64 @@
+@use "sass:math";
+@use "sass:color";
+
+@forward "sass:math";
+@forward "sass:color";
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "Unknown breakpoint: #{$breakpoint}. Available breakpoints are: #{map-keys($breakpoints)}";
+  }
+}
+
+@mixin gradient-text($start-color, $end-color) {
+  background: linear-gradient(135deg, $start-color, $end-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+@mixin glassmorphism($background: rgba(255, 255, 255, 0.05), $blur: 10px, $border: 1px solid rgba(255, 255, 255, 0.1)) {
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  background: $background;
+  border: $border;
+}
+
+@mixin box-shadow($shadow...) {
+  box-shadow: $shadow;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+@function get-red($color) {
+  @return color.red($color);
+}
+
+@function get-green($color) {
+  @return color.green($color);
+}
+
+@function get-blue($color) {
+  @return color.blue($color);
+}
+
+@function get-color-channel($color, $channel) {
+  @return color.channel($color, $channel, $space: rgb);
+} 
