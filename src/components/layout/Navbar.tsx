@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
+import { FaSun, FaMoon, FaBars } from 'react-icons/fa';
 import SocialIcons from '../shared/SocialIcons';
 
 interface NavbarProps {
@@ -47,76 +47,77 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
   };
 
   return (
-    <header className="fixed-top">
-      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="container">
-          {/* Brand */}
-          <div className="navbar-brand">
-            <Link to="/">
-              <span className="gradient-text fw-bold">
-                Bhogi Sharan
-              </span>
-            </Link>
-          </div>
-          
-          {/* Mobile Menu Toggle */}
-          <button 
-            className="mobile-menu-toggle d-md-none" 
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
+    <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="container">
+        {/* Brand */}
+        <div className="site-brand">
+          <Link to="/">
+            <span className="gradient-text fw-bold">Bhogi Sharan</span>
+          </Link>
+        </div>
+        
+        {/* Theme Toggle & Mobile Menu Toggle */}
+        <div className="header-actions">
+          <button
+            className="theme-toggle-btn"
+            onClick={toggleDarkMode}
+            aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+            {isDarkMode ? <FaSun /> : <FaMoon />}
           </button>
           
-          {/* Desktop Navigation */}
-          <div className="navigation-container d-none d-md-block">
-            <ul className="navbar-nav">
-              {navLinks.map((link) => (
-                <li key={link.path} className="nav-item">
-                  <Link
-                    to={link.path}
-                    className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          {/* Social Icons & Theme Toggle */}
-          <div className="nav-actions d-flex align-items-center">
-            <SocialIcons className="me-3 d-none d-md-flex" />
-            
-            <button
-              className="theme-toggle-btn"
-              onClick={toggleDarkMode}
-              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {isDarkMode ? <FaSun /> : <FaMoon />}
-            </button>
-          </div>
+          <button 
+            className="hamburger-btn d-md-none"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            <FaBars />
+          </button>
         </div>
-      </nav>
-
-      {/* Mobile Navigation Menu */}
-      {isMobileMenuOpen && (
-        <div className="mobile-menu">
-          <ul className="navbar-nav">
+        
+        {/* Desktop Navigation */}
+        <nav className="desktop-nav d-none d-md-block">
+          <ul className="nav-links">
             {navLinks.map((link) => (
-              <li key={link.path} className="nav-item">
+              <li key={link.path}>
                 <Link
                   to={link.path}
-                  className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                  className={location.pathname === link.path ? 'active' : ''}
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <SocialIcons className="mt-3" />
+        </nav>
+      </div>
+      
+      {/* Mobile Navigation Overlay */}
+      <div className={`mobile-nav-overlay ${isMobileMenuOpen ? 'show' : ''}`} onClick={toggleMobileMenu}></div>
+      
+      {/* Mobile Navigation Menu */}
+      <nav className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-nav-container">
+          <ul className="mobile-nav-links">
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <Link
+                  to={link.path}
+                  className={location.pathname === link.path ? 'active' : ''}
+                  onClick={toggleMobileMenu}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          
+          <div className="mobile-social-icons">
+            <SocialIcons />
+          </div>
         </div>
-      )}
+      </nav>
     </header>
   );
 };
