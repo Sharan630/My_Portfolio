@@ -10,20 +10,28 @@ import Contact from './pages/Contact';
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Initialize dark mode based on user's preference or previous setting
-    return localStorage.getItem('darkMode') === 'true' || 
-      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+   
+    const storedMode = localStorage.getItem('darkMode');
+   
+    return storedMode !== null ? storedMode === 'true' : true;
   });
   
+ 
   useEffect(() => {
-    // Apply the dark mode class to the body element
+ 
+    if (localStorage.getItem('darkMode') === null) {
+      setIsDarkMode(true);
+    }
+  }, []);
+  
+  useEffect(() => {
+   
     if (isDarkMode) {
       document.body.classList.add('dark-mode');
     } else {
       document.body.classList.remove('dark-mode');
     }
     
-    // Save the user's preference to localStorage
     localStorage.setItem('darkMode', isDarkMode.toString());
   }, [isDarkMode]);
   
