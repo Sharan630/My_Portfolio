@@ -1,4 +1,3 @@
-
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -110,6 +109,21 @@ body.dark-mode {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
+  
+  @media (max-width: 576px) {
+    padding: 0 1rem;
+  }
+  
+  .navbar & {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -195,41 +209,123 @@ a {
 }
 
 .navbar {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(18, 18, 18, 0.95);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   padding: 0.8rem 0;
   border-bottom: 1px solid var(--glass-border);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
   z-index: 1000;
+  width: 100%;
   
   &.scrolled {
     padding: 0.5rem 0;
     box-shadow: 0 5px 20px var(--shadow-color);
-    background-color: var(--glass-bg);
+    background-color: rgba(15, 15, 15, 1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  body.dark-mode & {
+    background-color: rgba(30, 30, 30, 0.9);
+    
+    &.scrolled {
+      background-color: rgba(18, 18, 18, 0.95);
+    }
+    
+    .nav-link {
+      background-color: rgba(187, 134, 252, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      
+      &:hover {
+        background-color: rgba(3, 218, 198, 0.3);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+      
+      &.active {
+        background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        color: white;
+      }
+    }
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    @media (max-width: 768px) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   }
   
   .navbar-brand {
     font-weight: 700;
     font-size: 1.5rem;
     padding: 0;
+    margin-right: 0;
     
     .gradient-text {
       background-size: 200% auto;
       animation: gradientAnimation 5s ease infinite alternate;
     }
+    
+    @media (max-width: 768px) {
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    gap: 0.5rem;
+    
+    @media (max-width: 991.98px) {
+      margin: 0.5rem 0;
+    }
+    
+    @media (max-width: 768px) {
+      gap: 0.25rem;
+      width: 100%;
+      order: 3;
+      margin-top: 0.5rem;
+    }
+    
+    .nav-item {
+      margin: 0 0.25rem;
+      
+      @media (max-width: 768px) {
+        margin: 0 0.1rem;
+      }
+    }
   }
   
   .nav-link {
-    color: var(--text-color);
-    font-weight: 500;
+    color: white;
+    font-weight: 700;
     padding: 0.5rem 1rem;
-    margin: 0 0.2rem;
     position: relative;
     transition: all 0.3s ease;
     border-radius: 8px;
+    display: block;
+    font-size: 1rem;
+    background-color: rgba(108, 99, 255, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin: 0 0.2rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    
+    @media (max-width: 768px) {
+      padding: 0.4rem 0.6rem;
+      font-size: 0.9rem;
+    }
     
     &::after {
       content: '';
@@ -244,8 +340,11 @@ a {
     }
     
     &:hover {
-      color: var(--primary-color);
-      background-color: rgba(255, 255, 255, 0.05);
+      color: white;
+      background-color: rgba(77, 181, 255, 0.8);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       
       &::after {
         width: 80%;
@@ -253,8 +352,11 @@ a {
     }
     
     &.active {
-      color: var(--primary-color);
-      font-weight: 600;
+      color: white;
+      font-weight: 700;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      border: 2px solid white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       
       &::after {
         width: 80%;
@@ -286,21 +388,12 @@ a {
     }
   }
   
-  .navbar-toggler {
-    color: var(--text-color);
-    background: transparent;
-    border: none;
-    padding: 0.5rem;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
+  .social-icons {
+    display: flex;
+    align-items: center;
     
-    &:hover {
-      color: var(--primary-color);
-      transform: rotate(90deg);
-    }
-    
-    &:focus {
-      box-shadow: none;
+    @media (max-width: 576px) {
+      display: none;
     }
   }
 }
@@ -321,16 +414,30 @@ a {
   margin-top: 0;
   padding: 1rem;
   
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+  
+  .nav-item {
+    margin: 0 0.5rem;
+  }
+  
   .nav-link {
     display: block;
-    padding: 0.75rem 1rem;
-    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
     border-radius: 10px;
     transition: all 0.3s ease;
     
     &:hover, &.active {
       background-color: rgba(var(--primary-color-rgb), 0.1);
-      transform: translateX(5px);
+      transform: translateY(-5px);
     }
     
     &.active {
@@ -339,6 +446,9 @@ a {
   }
   
   .social-icons {
+    display: flex;
+    justify-content: center;
+    
     .social-icon {
       width: 40px;
       height: 40px;
@@ -348,6 +458,7 @@ a {
       background-color: var(--bg-secondary);
       border-radius: 50%;
       transition: all 0.3s ease;
+      margin: 0 0.5rem;
       
       &:hover {
         background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -2026,6 +2137,121 @@ a {
         margin-top: 0.5rem;
         white-space: pre-wrap;
       }
+    }
+  }
+}
+
+.navigation-container {
+  background-color: rgba(30, 30, 30, 0.7);
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  
+  @media (max-width: 992px) {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  
+  &:hover {
+    border-color: rgba(var(--primary-color-rgb), 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  .navbar-nav {
+    gap: 0.6rem;
+    
+    @media (max-width: 768px) {
+      justify-content: space-around;
+      width: 100%;
+    }
+    
+    @media (max-width: 576px) {
+      gap: 0.3rem;
+    }
+  }
+}
+
+.nav-link {
+  color: white;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  display: block;
+  font-size: 1rem;
+  background-color: rgba(108, 99, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 0 0.1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.02rem;
+  transform-origin: center;
+  overflow: hidden;
+  
+  @media (max-width: 768px) {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+  }
+  
+  &:hover {
+    color: white;
+    background-color: rgba(77, 181, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    
+    &::before {
+      transform: translateX(100%);
+    }
+    
+    &::after {
+      width: 100%;
+      left: 0;
+      transform: none;
+    }
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  &.active {
+    color: white;
+    font-weight: 700;
+    background: linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.6), rgba(var(--secondary-color-rgb), 0.6));
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    
+    &::after {
+      width: 80%;
     }
   }
 }

@@ -1,0 +1,31 @@
+:root {
+  --primary-color: #6c63ff;
+  --primary-color-rgb: 108, 99, 255;
+  --secondary-color: #4db5ff;
+  --secondary-color-rgb: 77, 181, 255;
+  --text-color: #333;
+  --bg-color: #f9f9f9;
+  --bg-secondary: #f0f0f0;
+  --font-primary: 'Inter', sans-serif;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --transition-speed: 0.3s;
+  --blur-strength: 8px;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-hover-transform: translateY(-10px);
+  --animation-duration: 0.5s;
+  --glass-blur: 10px;
+  --border-radius-large: 20px;
+  --border-radius-small: 10px;
+  --gradient-angle: 135deg;
+  --tagline-color: #555;
+}
+
+/* Responsive breakpoints */
+$bp-xs: 0;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px; 
