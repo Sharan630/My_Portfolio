@@ -20,13 +20,19 @@
 
 @media (max-width: 992px) {
   .main-content {
-    padding-top: 100px; /* Adjusted space for navbar */
+    padding-top: 110px; /* Adjusted space for navbar */
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 140px; /* Increased padding for the expanded navbar */
   }
 }
 
 @media (max-width: 576px) {
   .main-content {
-    padding-top: 90px; /* Reduced padding for mobile */
+    padding-top: 150px; /* More padding for smaller screens */
   }
 }
 

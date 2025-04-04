@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
-import SocialIcons from '../shared/SocialIcons';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 interface NavbarProps {
   toggleDarkMode: () => void;
@@ -10,7 +9,6 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -29,11 +27,6 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
     };
   }, []);
 
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
-
   const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
@@ -41,10 +34,6 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
     { path: '/projects', label: 'Projects' },
     { path: '/contact', label: 'Contact' }
   ];
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
 
   return (
     <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
@@ -56,7 +45,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
           </Link>
         </div>
         
-        {/* Theme Toggle & Mobile Menu Toggle */}
+        {/* Theme Toggle */}
         <div className="header-actions">
           <button
             className="theme-toggle-btn"
@@ -65,19 +54,10 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
           >
             {isDarkMode ? <FaSun /> : <FaMoon />}
           </button>
-          
-          <button 
-            className="hamburger-btn d-md-none"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle navigation menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            <FaBars />
-          </button>
         </div>
         
-        {/* Desktop Navigation */}
-        <nav className="desktop-nav d-none d-md-block">
+        {/* Mobile & Desktop Navigation - Combined */}
+        <nav className="responsive-nav">
           <ul className="nav-links">
             {navLinks.map((link) => (
               <li key={link.path}>
@@ -92,40 +72,6 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
           </ul>
         </nav>
       </div>
-      
-      {/* Mobile Navigation Overlay */}
-      {isMobileMenuOpen && (
-        <div className="mobile-nav-overlay" onClick={toggleMobileMenu}></div>
-      )}
-      
-      {/* Mobile Navigation Menu */}
-      {isMobileMenuOpen && (
-        <nav className="mobile-nav open">
-          <div className="mobile-nav-container">
-            <button className="mobile-close-btn" onClick={toggleMobileMenu} aria-label="Close menu">
-              <FaTimes />
-            </button>
-            
-            <ul className="mobile-nav-links">
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className={location.pathname === link.path ? 'active' : ''}
-                    onClick={toggleMobileMenu}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            
-            <div className="mobile-social-icons">
-              <SocialIcons />
-            </div>
-          </div>
-        </nav>
-      )}
     </header>
   );
 };

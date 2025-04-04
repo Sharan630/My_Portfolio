@@ -2305,12 +2305,13 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1100; // Increased z-index to ensure it stays on top
   padding: 1rem 0;
   transition: all 0.3s ease;
-  background-color: rgba(18, 18, 18, 0.8);
+  background-color: rgba(18, 18, 18, 0.9); // More opaque background
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   
   &.scrolled {
     padding: 0.7rem 0;
@@ -2325,7 +2326,7 @@ a {
     flex-wrap: nowrap;
     
     @media (max-width: 768px) {
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
     }
   }
 
@@ -2343,12 +2344,25 @@ a {
         transition: all 0.3s ease;
       }
     }
+    
+    @media (max-width: 768px) {
+      flex: 0 0 auto;
+      
+      a .gradient-text {
+        font-size: 1.2rem;
+      }
+    }
   }
   
-  // Header Actions (Theme Toggle & Hamburger)
+  // Header Actions (Theme Toggle)
   .header-actions {
     display: flex;
     align-items: center;
+    
+    @media (max-width: 768px) {
+      order: 3;
+      margin-left: auto;
+    }
     
     .theme-toggle-btn {
       background: transparent;
@@ -2365,36 +2379,27 @@ a {
       justify-content: center;
       transition: all 0.3s ease;
       
+      @media (max-width: 768px) {
+        margin-right: 0;
+      }
+      
       &:hover {
         background-color: rgba(255, 255, 255, 0.1);
         transform: rotate(15deg);
       }
     }
-    
-    .hamburger-btn {
-      background: transparent;
-      border: none;
-      color: white;
-      font-size: 1.4rem;
-      cursor: pointer;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      margin-left: 0.5rem;
-      
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-    }
   }
   
-  // Desktop Navigation
-  .desktop-nav {
+  // New Responsive Navigation
+  .responsive-nav {
     margin-left: auto;
+    
+    @media (max-width: 768px) {
+      flex-basis: 100%;
+      order: 2;
+      margin: 0.5rem 0 0;
+      width: 100%;
+    }
     
     .nav-links {
       display: flex;
@@ -2402,8 +2407,18 @@ a {
       margin: 0;
       padding: 0;
       
+      @media (max-width: 768px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      
       li {
         margin: 0 0.5rem;
+        
+        @media (max-width: 768px) {
+          margin: 0.1rem;
+        }
         
         a {
           display: inline-block;
@@ -2415,6 +2430,11 @@ a {
           background-color: rgba(108, 99, 255, 0.2);
           border: 1px solid rgba(255, 255, 255, 0.15);
           transition: all 0.3s ease;
+          
+          @media (max-width: 768px) {
+            padding: 0.4rem 0.6rem;
+            font-size: 0.9rem;
+          }
           
           &:hover {
             background-color: rgba(77, 181, 255, 0.3);
@@ -2546,62 +2566,14 @@ a {
 
 // Fix mobile nav styles 
 @media (max-width: 767.98px) {
-  // Ensure mobile nav is properly positioned
-  .mobile-nav {
-    z-index: 1050;
-    width: 280px;
-    
-    &.open {
-      transform: translateX(0);
-    }
-    
-    .mobile-nav-container {
-      padding-top: 5rem;
-    }
-
-    .mobile-nav-links {
-      li {
-        margin-bottom: 1rem;
-        
-        a {
-          text-align: center;
-          padding: 1rem;
-          width: 100%;
-          font-size: 1.1rem;
-          border-radius: 12px;
-          background-color: rgba(108, 99, 255, 0.2);
-          border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-      }
-    }
-    
-    .mobile-social-icons {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      
-      a {
-        color: white;
-        font-size: 1.5rem;
-      }
-    }
-  }
-  
-  // Ensure the overlay properly covers the entire screen
-  .mobile-nav-overlay {
-    z-index: 1049;
-    backdrop-filter: blur(2px);
-  }
-  
   // Make sure the header elements are properly aligned
   .site-header {
-    z-index: 1100; /* Increased z-index to ensure it's above all content */
+    z-index: 1100;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(18, 18, 18, 0.95); /* More opaque background for mobile */
+    background-color: rgba(18, 18, 18, 0.95);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     
     .container {
@@ -2610,26 +2582,7 @@ a {
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      flex-wrap: nowrap;
-    }
-    
-    .site-brand {
-      a .gradient-text {
-        font-size: 1.2rem;
-      }
-    }
-    
-    .header-actions {
-      display: flex;
-      align-items: center;
-      
-      .theme-toggle-btn {
-        margin-right: 0.5rem;
-      }
-      
-      .hamburger-btn {
-        margin-left: 0.5rem;
-      }
+      flex-wrap: wrap;
     }
   }
 }
