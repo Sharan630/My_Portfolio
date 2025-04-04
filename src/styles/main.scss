@@ -2515,3 +2515,101 @@ a {
     }
   }
 }
+
+// Add this section to the end of the file to ensure it has higher specificity
+// Social Icons
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+// Fix mobile nav styles 
+@media (max-width: 767.98px) {
+  // Ensure mobile nav is properly positioned
+  .mobile-nav {
+    z-index: 1050;
+    
+    &.open {
+      right: 0;
+    }
+    
+    .mobile-nav-container {
+      padding-top: 5rem;
+    }
+
+    .mobile-nav-links {
+      li {
+        margin-bottom: 1rem;
+        
+        a {
+          text-align: center;
+          padding: 1rem;
+          width: 100%;
+          font-size: 1.1rem;
+          border-radius: 12px;
+          background-color: rgba(108, 99, 255, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+      }
+    }
+    
+    .mobile-social-icons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      
+      a {
+        color: white;
+        font-size: 1.5rem;
+      }
+    }
+  }
+  
+  // Ensure the overlay properly covers the entire screen
+  .mobile-nav-overlay {
+    z-index: 1049;
+  }
+  
+  // Make sure the header elements are properly aligned
+  .site-header {
+    .container {
+      padding: 0.5rem 1rem;
+    }
+    
+    .site-brand a .gradient-text {
+      font-size: 1.2rem;
+    }
+    
+    .header-actions {
+      .hamburger-btn {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}
+
+// Mobile close button style
+.mobile-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+  }
+}

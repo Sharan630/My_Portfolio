@@ -8,7 +8,7 @@ interface SocialIconsProps {
 
 const SocialIcons: FC<SocialIconsProps> = ({ className = '', iconClassName = 'fs-5' }) => {
   return (
-    <div className={`social-icons d-flex gap-3 ${className}`}>
+    <div className={`social-icons ${className}`}>
       <a 
         href="https://github.com/Sharan630" 
         target="_blank" 

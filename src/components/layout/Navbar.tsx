@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaSun, FaMoon, FaBars } from 'react-icons/fa';
+import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import SocialIcons from '../shared/SocialIcons';
 
 interface NavbarProps {
@@ -72,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
             aria-label="Toggle navigation menu"
             aria-expanded={isMobileMenuOpen}
           >
-            <FaBars />
+            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
         
@@ -99,6 +99,10 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
       {/* Mobile Navigation Menu */}
       <nav className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-nav-container">
+          <button className="mobile-close-btn" onClick={toggleMobileMenu} aria-label="Close menu">
+            <FaTimes />
+          </button>
+          
           <ul className="mobile-nav-links">
             {navLinks.map((link) => (
               <li key={link.path}>
