@@ -72,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
             aria-label="Toggle navigation menu"
             aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+            <FaBars />
           </button>
         </div>
         
@@ -94,34 +94,38 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
       </div>
       
       {/* Mobile Navigation Overlay */}
-      <div className={`mobile-nav-overlay ${isMobileMenuOpen ? 'show' : ''}`} onClick={toggleMobileMenu}></div>
+      {isMobileMenuOpen && (
+        <div className="mobile-nav-overlay" onClick={toggleMobileMenu}></div>
+      )}
       
       {/* Mobile Navigation Menu */}
-      <nav className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
-        <div className="mobile-nav-container">
-          <button className="mobile-close-btn" onClick={toggleMobileMenu} aria-label="Close menu">
-            <FaTimes />
-          </button>
-          
-          <ul className="mobile-nav-links">
-            {navLinks.map((link) => (
-              <li key={link.path}>
-                <Link
-                  to={link.path}
-                  className={location.pathname === link.path ? 'active' : ''}
-                  onClick={toggleMobileMenu}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          
-          <div className="mobile-social-icons">
-            <SocialIcons />
+      {isMobileMenuOpen && (
+        <nav className="mobile-nav open">
+          <div className="mobile-nav-container">
+            <button className="mobile-close-btn" onClick={toggleMobileMenu} aria-label="Close menu">
+              <FaTimes />
+            </button>
+            
+            <ul className="mobile-nav-links">
+              {navLinks.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className={location.pathname === link.path ? 'active' : ''}
+                    onClick={toggleMobileMenu}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            
+            <div className="mobile-social-icons">
+              <SocialIcons />
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      )}
     </header>
   );
 };
