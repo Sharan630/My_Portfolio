@@ -18,13 +18,13 @@
 
 @media (max-width: 992px) {
   .main-content {
-    padding-top: 180px; /* Extra space for wrapped navbar items */
+    padding-top: 100px; /* Adjusted space for navbar */
   }
 }
 
 @media (max-width: 576px) {
   .main-content {
-    padding-top: 200px; /* Even more space for mobile */
+    padding-top: 90px; /* Reduced padding for mobile */
   }
 }
 

@@ -121,7 +121,8 @@ body.dark-mode {
     justify-content: space-between;
     
     @media (max-width: 768px) {
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: nowrap;
     }
   }
 }
@@ -2315,9 +2316,9 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
       flex-wrap: nowrap;
     }
   }
@@ -2457,18 +2458,20 @@ a {
   z-index: 1050;
   overflow-y: auto;
   box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
   
   &.open {
-    animation: slideIn 0.3s forwards;
+    transform: translateX(0);
   }
 }
 
 @keyframes slideIn {
   from {
-    right: -280px;
+    transform: translateX(100%);
   }
   to {
-    right: 0;
+    transform: translateX(0);
   }
 }
 
@@ -2540,9 +2543,10 @@ a {
   // Ensure mobile nav is properly positioned
   .mobile-nav {
     z-index: 1050;
+    width: 280px;
     
     &.open {
-      right: 0;
+      transform: translateX(0);
     }
     
     .mobile-nav-container {
@@ -2581,19 +2585,36 @@ a {
   // Ensure the overlay properly covers the entire screen
   .mobile-nav-overlay {
     z-index: 1049;
+    backdrop-filter: blur(2px);
   }
   
   // Make sure the header elements are properly aligned
   .site-header {
+    z-index: 1000;
+    
     .container {
       padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      flex-wrap: nowrap;
     }
     
-    .site-brand a .gradient-text {
-      font-size: 1.2rem;
+    .site-brand {
+      a .gradient-text {
+        font-size: 1.2rem;
+      }
     }
     
     .header-actions {
+      display: flex;
+      align-items: center;
+      
+      .theme-toggle-btn {
+        margin-right: 0.5rem;
+      }
+      
       .hamburger-btn {
         margin-left: 0.5rem;
       }
@@ -2618,6 +2639,7 @@ a {
   font-size: 1.2rem;
   transition: all 0.3s ease;
   cursor: pointer;
+  z-index: 1051;
   
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
