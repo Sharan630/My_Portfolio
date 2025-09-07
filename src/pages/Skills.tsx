@@ -278,6 +278,63 @@ const Skills = () => {
           <div className="journey-section">
             <div className="timeline-container" ref={timelineRef}>
               <div className="timeline-item">
+                <div className="timeline-date">Aug 2025 - Present</div>
+                <div className="timeline-marker"></div>
+                <div className="timeline-content glass-card">
+                  <h3>Development Team Lead</h3>
+                  <p className="company-name">Franean Technologies</p>
+                  <p>
+                    Leading a team of developers in creating innovative web solutions for Franean Lubricants' digital transformation. Overseeing project management, code reviews, and technical architecture decisions. Mentoring junior developers and implementing best practices for scalable web applications.
+                  </p>
+                  <div className="timeline-tags">
+                    <span className="tag">Team Leadership</span>
+                    <span className="tag">Project Management</span>
+                    <span className="tag">React</span>
+                    <span className="tag">Node.js</span>
+                    <span className="tag">Architecture</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="timeline-item">
+                <div className="timeline-date">May 2025 - Jul 2025</div>
+                <div className="timeline-marker"></div>
+                <div className="timeline-content glass-card">
+                  <h3>Web Developer</h3>
+                  <p className="company-name">Franean Technologies</p>
+                  <p>
+                    Developed and maintained web applications for Franean Lubricants' digital presence. Built responsive user interfaces and integrated backend services. Collaborated with cross-functional teams to deliver high-quality web solutions that enhanced the company's online presence and customer engagement.
+                  </p>
+                  <div className="timeline-tags">
+                    <span className="tag">React</span>
+                    <span className="tag">JavaScript</span>
+                    <span className="tag">CSS3</span>
+                    <span className="tag">API Integration</span>
+                    <span className="tag">Responsive Design</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="timeline-item">
+                <div className="timeline-date">2023 - Present</div>
+                <div className="timeline-marker"></div>
+                <div className="timeline-content glass-card">
+                  <h3>Freelance Web Developer</h3>
+                  <p className="company-name">Various Clients</p>
+                  <p>
+                    Working independently on diverse projects for multiple clients, delivering custom web solutions tailored to specific business needs. Developed full-stack applications, e-commerce platforms, and interactive web experiences. Gained extensive experience working with real-world applications and diverse client requirements.
+                  </p>
+                  <div className="timeline-tags">
+                    <span className="tag">Full Stack</span>
+                    <span className="tag">Client Management</span>
+                    <span className="tag">E-commerce</span>
+                    <span className="tag">Custom Solutions</span>
+                    <span className="tag">Real-world Apps</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="timeline-item">
                 <div className="timeline-date">Feb 2023 - Apr 2023</div>
                 <div className="timeline-marker"></div>
                 <div className="timeline-content glass-card">
