@@ -108,24 +108,6 @@ const Freelance = () => {
     }
   };
 
-  const containerVariant = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-  
-  const itemVariant = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5 }
-    }
-  };
 
   useEffect(() => {
     
@@ -181,6 +163,13 @@ const Freelance = () => {
 
   return (
     <section className="freelance-section section">
+      {/* Background Elements */}
+      <div className="freelance-bg-shapes">
+        <div className="freelance-shape shape-1"></div>
+        <div className="freelance-shape shape-2"></div>
+        <div className="freelance-shape shape-3"></div>
+      </div>
+      
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -191,70 +180,165 @@ const Freelance = () => {
         >
           <h2 className="section-title gradient-text fw-bold">Freelance Projects</h2>
           <div className="title-underline"></div>
-          <p className="lead col-md-8 mx-auto mb-5">
+          <p className="lead col-md-8 mx-auto mb-4">
             Real-world applications built for diverse clients across various industries
           </p>
+          
+          {/* Stats Cards */}
+          <div className="row g-3 mb-5">
+            <div className="col-md-3 col-6">
+              <motion.div 
+                className="stat-card glass-card p-3"
+                whileHover={{ y: -5, scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h4 className="stat-number gradient-text">{freelanceProjects.length}</h4>
+                <p className="stat-label mb-0">Projects</p>
+              </motion.div>
+            </div>
+            <div className="col-md-3 col-6">
+              <motion.div 
+                className="stat-card glass-card p-3"
+                whileHover={{ y: -5, scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h4 className="stat-number gradient-text">4</h4>
+                <p className="stat-label mb-0">Industries</p>
+              </motion.div>
+            </div>
+            <div className="col-md-3 col-6">
+              <motion.div 
+                className="stat-card glass-card p-3"
+                whileHover={{ y: -5, scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h4 className="stat-number gradient-text">100%</h4>
+                <p className="stat-label mb-0">Success Rate</p>
+              </motion.div>
+            </div>
+            <div className="col-md-3 col-6">
+              <motion.div 
+                className="stat-card glass-card p-3"
+                whileHover={{ y: -5, scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h4 className="stat-number gradient-text">24/7</h4>
+                <p className="stat-label mb-0">Support</p>
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
         
         {/* Featured Projects Section */}
-        <div className="featured-projects" ref={featuredProjectsRef}>
-          <h3 className="featured-projects-title mb-4">
-            <span className="gradient-text">⭐ Featured Projects</span>
-          </h3>
+        <motion.div 
+          className="featured-projects-section"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          ref={featuredProjectsRef}
+        >
+          <div className="text-center mb-5">
+            <h3 className="featured-projects-title mb-3">
+              <span className="gradient-text">⭐ Featured Projects</span>
+            </h3>
+            <p className="featured-subtitle">Showcasing my best freelance work</p>
+          </div>
           
           <div className="row g-4 mb-5">
-            {featuredProjects.map((project) => (
-              <div className="col-md-4" key={project.id}>
+            {featuredProjects.map((project, index) => (
+              <div className="col-lg-6" key={project.id}>
                 <motion.div 
-                  className="featured-project-card glass-card h-100"
+                  className="featured-project-card modern-card h-100"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  viewport={{ once: true }}
                   whileHover={{ 
-                    y: -10, 
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                    y: -15, 
+                    boxShadow: "0 25px 50px rgba(0,0,0,0.2)",
                     scale: 1.02
                   }}
-                  transition={{ duration: 0.3 }}
                 >
-                  <div className="featured-project-header">
-                    <div className="project-category-badge">{project.category}</div>
-                    <div className="featured-badge">Featured</div>
+                  {/* Card Header */}
+                  <div className="card-header">
+                    <div className="project-badges">
+                      <span className="category-badge">{project.category}</span>
+                      <span className="featured-badge">Featured</span>
+                    </div>
+                    <div className="project-status">
+                      <span className="status-dot"></span>
+                      <span className="status-text">Live</span>
+                    </div>
                   </div>
                   
-                  <div className="featured-project-image-container">
-                    <img 
-                      src={project.imageUrl} 
-                      alt={project.title} 
-                      className="featured-project-image"
-                      onError={(e) => {
-                        e.currentTarget.src = "https://via.placeholder.com/600x400?text=Project+Image";
-                      }}
-                    />
-                    <div className="featured-project-overlay">
-                      <div className="featured-project-links">
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="featured-project-link github">
-                          <FaGithub />
-                          <span>Code</span>
-                        </a>
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="featured-project-link external">
-                          <FaExternalLinkAlt />
-                          <span>Live</span>
-                        </a>
+                  {/* Project Image */}
+                  <div className="project-image-wrapper">
+                    <div className="project-image-container">
+                      <img 
+                        src={project.imageUrl} 
+                        alt={project.title} 
+                        className="project-image"
+                        onError={(e) => {
+                          e.currentTarget.src = "https://via.placeholder.com/600x300/1a1a1a/ffffff?text=Project+Preview";
+                        }}
+                      />
+                      <div className="image-overlay">
+                        <div className="overlay-content">
+                          <div className="project-links">
+                            <motion.a 
+                              href={project.githubUrl} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="project-link github-link"
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              <FaGithub />
+                              <span>View Code</span>
+                            </motion.a>
+                            <motion.a 
+                              href={project.liveUrl} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="project-link live-link"
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              <FaExternalLinkAlt />
+                              <span>Live Demo</span>
+                            </motion.a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="featured-project-content">
-                    <h4 className="featured-project-title">{project.title}</h4>
-                    <p className="featured-project-client">
-                      <span className="client-label">Client:</span> {project.client}
-                    </p>
-                    <p className="featured-project-description">{project.description}</p>
-                    <div className="featured-tech-stack">
-                      <span className="tech-label">Technologies:</span>
-                      <div className="tech-tags-container">
+                  {/* Project Content */}
+                  <div className="project-content">
+                    <div className="project-title-section">
+                      <h4 className="project-title">{project.title}</h4>
+                      <div className="client-info">
+                        <span className="client-icon">👤</span>
+                        <span className="client-name">{project.client}</span>
+                      </div>
+                    </div>
+                    
+                    <p className="project-description">{project.description}</p>
+                    
+                    <div className="tech-stack-section">
+                      <h6 className="tech-title">Technologies Used</h6>
+                      <div className="tech-tags">
                         {project.technologies.map((tech, techIndex) => (
-                          <span className="tech-tag featured" key={techIndex}>
-                            {getTechIcon(tech)} {tech}
-                          </span>
+                          <motion.span 
+                            className="tech-tag" 
+                            key={techIndex}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {getTechIcon(tech)}
+                            <span className="tech-name">{tech}</span>
+                          </motion.span>
                         ))}
                       </div>
                     </div>
@@ -263,78 +347,119 @@ const Freelance = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
         
         {/* Regular Projects Grid */}
         <motion.div 
-          className="projects-container mt-5"
-          initial="hidden"
-          whileInView="visible"
+          className="regular-projects-section"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          variants={containerVariant}
           ref={projectsGridRef}
         >
-          <h3 className="more-projects-title mb-4">
-            <span className="gradient-text">More Projects</span>
-          </h3>
+          <div className="text-center mb-5">
+            <h3 className="more-projects-title mb-3">
+              <span className="gradient-text">More Projects</span>
+            </h3>
+            <p className="more-subtitle">Additional freelance work and client projects</p>
+          </div>
           
           <div className="projects-grid">
-            {regularProjects.map((project) => (
+            {regularProjects.map((project, index) => (
               <motion.div 
-                className="project-card glass-card"
+                className="regular-project-card modern-card"
                 key={project.id}
-                variants={itemVariant}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
                 whileHover={{ 
-                  y: -8, 
-                  boxShadow: "0 15px 30px rgba(0,0,0,0.12)",
-                  scale: 1.01
+                  y: -10, 
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                  scale: 1.02
                 }}
-                transition={{ duration: 0.3 }}
               >
-                <div className="project-card-inner">
-                  <div className="project-header">
-                    <div className="project-category-badge">{project.category}</div>
-                    <div className="project-status-badge">Completed</div>
+                {/* Card Header */}
+                <div className="card-header">
+                  <div className="project-badges">
+                    <span className="category-badge">{project.category}</span>
+                    <span className="status-badge">Completed</span>
                   </div>
-                  
+                  <div className="project-status">
+                    <span className="status-dot completed"></span>
+                    <span className="status-text">Live</span>
+                  </div>
+                </div>
+                
+                {/* Project Image */}
+                <div className="project-image-wrapper">
                   <div className="project-image-container">
                     <img 
                       src={project.imageUrl} 
                       alt={project.title} 
                       className="project-image"
                       onError={(e) => {
-                        e.currentTarget.src = "https://via.placeholder.com/600x400?text=Project+Image";
+                        e.currentTarget.src = "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Project+Preview";
                       }} 
                     />
-                    <div className="project-image-overlay">
-                      <div className="project-links">
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link">
-                          <FaGithub />
-                          <span>Code</span>
-                        </a>
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link">
-                          <FaExternalLinkAlt />
-                          <span>Live</span>
-                        </a>
+                    <div className="image-overlay">
+                      <div className="overlay-content">
+                        <div className="project-links">
+                          <motion.a 
+                            href={project.githubUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="project-link github-link"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <FaGithub />
+                            <span>Code</span>
+                          </motion.a>
+                          <motion.a 
+                            href={project.liveUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="project-link live-link"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <FaExternalLinkAlt />
+                            <span>Live</span>
+                          </motion.a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  
-                  <div className="project-content">
+                </div>
+                
+                {/* Project Content */}
+                <div className="project-content">
+                  <div className="project-title-section">
                     <h5 className="project-title">{project.title}</h5>
-                    <p className="project-client">
-                      <span className="client-label">Client:</span> {project.client}
-                    </p>
-                    <p className="project-description">{project.description}</p>
-                    <div className="tech-stack">
-                      <span className="tech-label">Tech Stack:</span>
-                      <div className="tech-tags-container">
-                        {project.technologies.map((tech, techIndex) => (
-                          <span className="tech-tag small" key={techIndex}>
-                            {getTechIcon(tech)} <span className="tech-name">{tech}</span>
-                          </span>
-                        ))}
-                      </div>
+                    <div className="client-info">
+                      <span className="client-icon">👤</span>
+                      <span className="client-name">{project.client}</span>
+                    </div>
+                  </div>
+                  
+                  <p className="project-description">{project.description}</p>
+                  
+                  <div className="tech-stack-section">
+                    <h6 className="tech-title">Tech Stack</h6>
+                    <div className="tech-tags">
+                      {project.technologies.map((tech, techIndex) => (
+                        <motion.span 
+                          className="tech-tag small" 
+                          key={techIndex}
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {getTechIcon(tech)}
+                          <span className="tech-name">{tech}</span>
+                        </motion.span>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -342,18 +467,39 @@ const Freelance = () => {
             ))}
           </div>
           
+          {/* Call to Action */}
           <div className="text-center mt-5">
-            <motion.a 
-              href="https://github.com/Sharan630" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="btn btn-primary btn-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <motion.div
+              className="cta-section"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
-              <FaGithub className="me-2" />
-              See More on GitHub
-            </motion.a>
+              <h4 className="cta-title mb-3">Interested in Working Together?</h4>
+              <p className="cta-subtitle mb-4">Let's discuss your next project</p>
+              <div className="cta-buttons">
+                <motion.a 
+                  href="https://github.com/Sharan630" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn btn-primary btn-lg me-3"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaGithub className="me-2" />
+                  View All Projects
+                </motion.a>
+                <motion.a 
+                  href="/contact" 
+                  className="btn btn-outline-primary btn-lg"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Get In Touch
+                </motion.a>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>
