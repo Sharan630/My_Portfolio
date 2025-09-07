@@ -287,11 +287,10 @@ const Skills = () => {
                     Leading a team of developers in creating innovative web solutions for Franean Lubricants' digital transformation. Overseeing project management, code reviews, and technical architecture decisions. Mentoring junior developers and implementing best practices for scalable web applications.
                   </p>
                   <div className="timeline-tags">
-                    <span className="tag">Team Leadership</span>
+                    <span className="tag">Team Lead</span>
                     <span className="tag">Project Management</span>
-                    <span className="tag">React</span>
-                    <span className="tag">Node.js</span>
-                    <span className="tag">Architecture</span>
+                    <span className="tag">Code Review</span>
+                    <span className="tag">Mentoring</span>
                   </div>
                 </div>
               </div>
