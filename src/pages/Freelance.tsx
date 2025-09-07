@@ -28,7 +28,7 @@ const Freelance = () => {
       id: 1,
       title: "Svans Realty Website",
       description: "A luxury real estate website showcasing premium villas and commercial plots in Hyderabad. Features modern design, property listings, brochure downloads, and contact forms for high-end clientele.",
-      technologies: ["React", "Next.js", "Tailwind CSS", "Vercel"],
+      technologies: ["Next.js", "React", "Tailwind CSS", "Vercel", "TypeScript", "Framer Motion"],
       imageUrl: "https://svans-real-estate.vercel.app/",
       githubUrl: "https://github.com/Sharan630/svans-real-estate",
       liveUrl: "https://svans-real-estate.vercel.app/",
@@ -40,7 +40,7 @@ const Freelance = () => {
       id: 2,
       title: "Franean Technologies Website",
       description: "Professional web development company website featuring services, portfolio, client testimonials, and modern UI/UX design. Built for a technology company specializing in web solutions.",
-      technologies: ["React", "Next.js", "CSS3", "Modern UI/UX"],
+      technologies: ["React", "Vite", "CSS3", "JavaScript", "Responsive Design", "Modern UI/UX"],
       imageUrl: "https://www.franeantechnologies.com/",
       githubUrl: "https://github.com/Sharan630/franean-technologies",
       liveUrl: "https://www.franeantechnologies.com/",
@@ -52,7 +52,7 @@ const Freelance = () => {
       id: 3,
       title: "NexLearns Platform",
       description: "Educational platform website designed for online learning and course management. Features user-friendly interface for students and instructors with modern educational design.",
-      technologies: ["React", "Node.js", "Express.js", "MongoDB"],
+      technologies: ["EJS", "PostgreSQL", "Node.js", "Express.js", "JavaScript", "Bootstrap"],
       imageUrl: "https://www.nexlearns.com/",
       githubUrl: "https://github.com/Sharan630/nexlearns",
       liveUrl: "https://www.nexlearns.com/",
@@ -64,7 +64,7 @@ const Freelance = () => {
       id: 4,
       title: "Lakdiwala Organization Website",
       description: "Non-profit organization website showcasing their mission, programs, and community impact. Built with clean, accessible design to effectively communicate their social initiatives.",
-      technologies: ["React", "JavaScript", "CSS3", "Responsive Design"],
+      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Bootstrap", "jQuery"],
       imageUrl: "https://www.lakdiwala.org.in/",
       githubUrl: "https://github.com/Sharan630/lakdiwala-org",
       liveUrl: "https://www.lakdiwala.org.in/",
@@ -102,6 +102,18 @@ const Freelance = () => {
         return <SiBootstrap />;
       case 'vercel':
         return <SiVercel />;
+      case 'ejs':
+        return <FaHtml5 />;
+      case 'express.js':
+        return <FaNodeJs />;
+      case 'vite':
+        return <FaReact />;
+      case 'responsive design':
+        return <FaCss3Alt />;
+      case 'modern ui/ux':
+        return <FaCss3Alt />;
+      case 'jquery':
+        return <FaJs />;
       default:
         return <FaDatabase />;
     }
