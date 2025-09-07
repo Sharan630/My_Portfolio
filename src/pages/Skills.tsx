@@ -284,7 +284,7 @@ const Skills = () => {
                   <h3>Development Team Lead</h3>
                   <p className="company-name">Franean Technologies</p>
                   <p>
-                    Leading a team of developers in creating innovative web solutions for Franean Lubricants' digital transformation. Overseeing project management, code reviews, and technical architecture decisions. Mentoring junior developers and implementing best practices for scalable web applications.
+                    Leading a team of developers in creating innovative web solutions for digital transformation. Overseeing project management, code reviews, and technical architecture decisions. Mentoring junior developers and implementing best practices for scalable web applications.
                   </p>
                   <div className="timeline-tags">
                     <span className="tag">Team Lead</span>
