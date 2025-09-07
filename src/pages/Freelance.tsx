@@ -220,25 +220,35 @@ const Freelance = () => {
           </div>
           
           <div className="row g-4 mb-5">
-            {allProjects.map((project, index) => (
-              <div className="col-lg-6" key={project.id}>
-                <motion.div 
-                  className="featured-project-card modern-card h-100"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  whileHover={{ 
-                    y: -15, 
-                    boxShadow: "0 25px 50px rgba(0,0,0,0.2)",
-                    scale: 1.02
-                  }}
-                >
+             {allProjects.map((project, index) => (
+               <div className="col-lg-6" key={project.id}>
+                 <motion.div 
+                   className="project-card-container"
+                   initial={{ opacity: 0, y: 50 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.6, delay: index * 0.2 }}
+                   viewport={{ once: true }}
+                 >
+                   <motion.div 
+                     className="featured-project-card modern-card h-100"
+                     whileHover={{ 
+                       y: -20, 
+                       rotateX: 5,
+                       rotateY: 2,
+                       boxShadow: "0 30px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1)",
+                       scale: 1.03
+                     }}
+                     transition={{ duration: 0.4, ease: "easeOut" }}
+                     style={{
+                       transformStyle: "preserve-3d",
+                       perspective: "1000px"
+                     }}
+                   >
                   {/* Card Header */}
                   <div className="card-header">
                     <div className="project-badges">
                       <span className="category-badge">{project.category}</span>
-                      {project.featured && <span className="featured-badge">Featured</span>}
+                      {project.featured && <span className="featured-badge">⭐ Featured</span>}
                     </div>
                     <div className="project-status">
                       <span className="status-dot"></span>
@@ -246,17 +256,23 @@ const Freelance = () => {
                     </div>
                   </div>
                   
+                  {/* Card Glow Effect */}
+                  <div className="card-glow"></div>
+                  
                   {/* Project Image */}
                   <div className="project-image-wrapper">
                     <div className="project-image-container">
-                      <img 
-                        src={project.imageUrl} 
-                        alt={project.title} 
-                        className="project-image"
-                        onError={(e) => {
-                          e.currentTarget.src = "https://via.placeholder.com/600x300/1a1a1a/ffffff?text=Project+Preview";
-                        }}
-                      />
+                      <div className="image-frame">
+                        <img 
+                          src={project.imageUrl} 
+                          alt={project.title} 
+                          className="project-image"
+                          onError={(e) => {
+                            e.currentTarget.src = "https://via.placeholder.com/600x300/1a1a1a/ffffff?text=Project+Preview";
+                          }}
+                        />
+                        <div className="image-shine"></div>
+                      </div>
                       <div className="image-overlay">
                         <div className="overlay-content">
                           <div className="project-links">
@@ -265,7 +281,7 @@ const Freelance = () => {
                               target="_blank" 
                               rel="noopener noreferrer" 
                               className="project-link github-link"
-                              whileHover={{ scale: 1.1 }}
+                              whileHover={{ scale: 1.15, y: -2 }}
                               whileTap={{ scale: 0.95 }}
                             >
                               <FaGithub />
@@ -276,7 +292,7 @@ const Freelance = () => {
                               target="_blank" 
                               rel="noopener noreferrer" 
                               className="project-link live-link"
-                              whileHover={{ scale: 1.1 }}
+                              whileHover={{ scale: 1.15, y: -2 }}
                               whileTap={{ scale: 0.95 }}
                             >
                               <FaExternalLinkAlt />
@@ -307,7 +323,11 @@ const Freelance = () => {
                           <motion.span 
                             className="tech-tag" 
                             key={techIndex}
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ 
+                              scale: 1.08, 
+                              y: -2,
+                              boxShadow: "0 4px 12px rgba(0,0,0,0.2)"
+                            }}
                             transition={{ duration: 0.2 }}
                           >
                             {getTechIcon(tech)}
@@ -317,8 +337,23 @@ const Freelance = () => {
                       </div>
                     </div>
                   </div>
-                </motion.div>
-              </div>
+                  
+                  {/* Card Footer */}
+                  <div className="card-footer">
+                    <div className="project-meta">
+                      <span className="meta-item">
+                        <span className="meta-icon">📅</span>
+                        <span className="meta-text">2024</span>
+                      </span>
+                      <span className="meta-item">
+                        <span className="meta-icon">🌐</span>
+                        <span className="meta-text">Web App</span>
+                      </span>
+                    </div>
+                  </div>
+                   </motion.div>
+                 </motion.div>
+               </div>
             ))}
           </div>
         </motion.div>

@@ -120,7 +120,7 @@ const About = () => {
                   <ul className="list-unstyled">
                     <li className="mb-3">
                       <p className="mb-0 fw-bold">Freelance Web Developer</p>
-                      <p className="mb-0 info-text">Various Clients (2023 - Present)</p>
+                      <p className="mb-0 info-text">Various Clients (Present)</p>
                       <p className="mb-0 small text-muted">Worked on many real-world applications</p>
                     </li>
                     <li className="mb-3">
@@ -133,7 +133,7 @@ const About = () => {
                     </li>
                     <li className="mb-3">
                       <p className="mb-0 fw-bold">Full Stack Development Intern</p>
-                      <p className="mb-0 info-text">CodTech IT Solutions (Feb 2023 - April 2023)</p>
+                      <p className="mb-0 info-text">CodTech IT Solutions (Feb 2025 - April 2025)</p>
                     </li>
                   </ul>
                 </motion.div>
