@@ -219,7 +219,7 @@ const Freelance = () => {
             <p className="all-subtitle">Complete portfolio of freelance work</p>
           </div>
           
-          <div className="row g-4 mb-5">
+          <div className="row g-5 mb-5">
              {allProjects.map((project, index) => (
                <div className="col-lg-6" key={project.id}>
                  <motion.div 
@@ -245,7 +245,7 @@ const Freelance = () => {
                      }}
                    >
                   {/* Card Header */}
-                  <div className="card-header">
+                  <div className="card-header mb-3">
                     <div className="project-badges">
                       <span className="category-badge">{project.category}</span>
                       {project.featured && <span className="featured-badge">⭐ Featured</span>}
@@ -260,7 +260,7 @@ const Freelance = () => {
                   <div className="card-glow"></div>
                   
                   {/* Project Image */}
-                  <div className="project-image-wrapper">
+                  <div className="project-image-wrapper mb-4">
                     <div className="project-image-container">
                       <div className="image-frame">
                         <img 
@@ -276,17 +276,6 @@ const Freelance = () => {
                       <div className="image-overlay">
                         <div className="overlay-content">
                           <div className="project-links">
-                            <motion.a 
-                              href={project.githubUrl} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="project-link github-link"
-                              whileHover={{ scale: 1.15, y: -2 }}
-                              whileTap={{ scale: 0.95 }}
-                            >
-                              <FaGithub />
-                              <span>View Code</span>
-                            </motion.a>
                             <motion.a 
                               href={project.liveUrl} 
                               target="_blank" 
@@ -306,18 +295,18 @@ const Freelance = () => {
                   
                   {/* Project Content */}
                   <div className="project-content">
-                    <div className="project-title-section">
-                      <h4 className="project-title">{project.title}</h4>
+                    <div className="project-title-section mb-3">
+                      <h4 className="project-title mb-2">{project.title}</h4>
                       <div className="client-info">
                         <span className="client-icon">👤</span>
                         <span className="client-name">{project.client}</span>
                       </div>
                     </div>
                     
-                    <p className="project-description">{project.description}</p>
+                    <p className="project-description mb-4">{project.description}</p>
                     
                     <div className="tech-stack-section">
-                      <h6 className="tech-title">Technologies Used</h6>
+                      <h6 className="tech-title mb-3">Technologies Used</h6>
                       <div className="tech-tags">
                         {project.technologies.map((tech, techIndex) => (
                           <motion.span 
@@ -339,9 +328,9 @@ const Freelance = () => {
                   </div>
                   
                   {/* Card Footer */}
-                  <div className="card-footer">
+                  <div className="card-footer mt-4">
                     <div className="project-meta">
-                      <span className="meta-item">
+                      <span className="meta-item me-3">
                         <span className="meta-icon">📅</span>
                         <span className="meta-text">2024</span>
                       </span>
