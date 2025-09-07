@@ -119,6 +119,19 @@ const About = () => {
                   </div>
                   <ul className="list-unstyled">
                     <li className="mb-3">
+                      <p className="mb-0 fw-bold">Freelance Web Developer</p>
+                      <p className="mb-0 info-text">Various Clients (2023 - Present)</p>
+                      <p className="mb-0 small text-muted">Worked on many real-world applications</p>
+                    </li>
+                    <li className="mb-3">
+                      <p className="mb-0 fw-bold">Development Team Lead</p>
+                      <p className="mb-0 info-text">Franean Technologies (August 2025 - Present)</p>
+                    </li>
+                    <li className="mb-3">
+                      <p className="mb-0 fw-bold">Web Developer</p>
+                      <p className="mb-0 info-text">Franean Technologies (May 2025 - July 2025)</p>
+                    </li>
+                    <li className="mb-3">
                       <p className="mb-0 fw-bold">Full Stack Development Intern</p>
                       <p className="mb-0 info-text">CodTech IT Solutions (Feb 2023 - April 2023)</p>
                     </li>
