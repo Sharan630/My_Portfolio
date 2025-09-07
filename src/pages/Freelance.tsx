@@ -199,13 +199,26 @@ const Freelance = () => {
         {/* Featured Projects Section */}
         <div className="featured-projects" ref={featuredProjectsRef}>
           <h3 className="featured-projects-title mb-4">
-            <span className="gradient-text">Featured Projects</span>
+            <span className="gradient-text">⭐ Featured Projects</span>
           </h3>
           
           <div className="row g-4 mb-5">
             {featuredProjects.map((project) => (
               <div className="col-md-4" key={project.id}>
-                <div className="featured-project-card h-100">
+                <motion.div 
+                  className="featured-project-card glass-card h-100"
+                  whileHover={{ 
+                    y: -10, 
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                    scale: 1.02
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="featured-project-header">
+                    <div className="project-category-badge">{project.category}</div>
+                    <div className="featured-badge">Featured</div>
+                  </div>
+                  
                   <div className="featured-project-image-container">
                     <img 
                       src={project.imageUrl} 
@@ -219,26 +232,34 @@ const Freelance = () => {
                       <div className="featured-project-links">
                         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="featured-project-link github">
                           <FaGithub />
+                          <span>Code</span>
                         </a>
                         <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="featured-project-link external">
                           <FaExternalLinkAlt />
+                          <span>Live</span>
                         </a>
                       </div>
                     </div>
                   </div>
+                  
                   <div className="featured-project-content">
                     <h4 className="featured-project-title">{project.title}</h4>
-                    <p className="featured-project-client">{project.client}</p>
+                    <p className="featured-project-client">
+                      <span className="client-label">Client:</span> {project.client}
+                    </p>
                     <p className="featured-project-description">{project.description}</p>
                     <div className="featured-tech-stack">
-                      {project.technologies.map((tech, techIndex) => (
-                        <span className="tech-tag" key={techIndex}>
-                          {getTechIcon(tech)} {tech}
-                        </span>
-                      ))}
+                      <span className="tech-label">Technologies:</span>
+                      <div className="tech-tags-container">
+                        {project.technologies.map((tech, techIndex) => (
+                          <span className="tech-tag featured" key={techIndex}>
+                            {getTechIcon(tech)} {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>
@@ -260,11 +281,22 @@ const Freelance = () => {
           <div className="projects-grid">
             {regularProjects.map((project) => (
               <motion.div 
-                className="project-card"
+                className="project-card glass-card"
                 key={project.id}
                 variants={itemVariant}
+                whileHover={{ 
+                  y: -8, 
+                  boxShadow: "0 15px 30px rgba(0,0,0,0.12)",
+                  scale: 1.01
+                }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="project-card-inner">
+                  <div className="project-header">
+                    <div className="project-category-badge">{project.category}</div>
+                    <div className="project-status-badge">Completed</div>
+                  </div>
+                  
                   <div className="project-image-container">
                     <img 
                       src={project.imageUrl} 
@@ -278,23 +310,31 @@ const Freelance = () => {
                       <div className="project-links">
                         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link">
                           <FaGithub />
+                          <span>Code</span>
                         </a>
                         <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link">
                           <FaExternalLinkAlt />
+                          <span>Live</span>
                         </a>
                       </div>
                     </div>
                   </div>
+                  
                   <div className="project-content">
                     <h5 className="project-title">{project.title}</h5>
-                    <p className="project-client">{project.client}</p>
+                    <p className="project-client">
+                      <span className="client-label">Client:</span> {project.client}
+                    </p>
                     <p className="project-description">{project.description}</p>
                     <div className="tech-stack">
-                      {project.technologies.map((tech, techIndex) => (
-                        <span className="tech-tag small" key={techIndex}>
-                          {getTechIcon(tech)} <span className="tech-name">{tech}</span>
-                        </span>
-                      ))}
+                      <span className="tech-label">Tech Stack:</span>
+                      <div className="tech-tags-container">
+                        {project.technologies.map((tech, techIndex) => (
+                          <span className="tech-tag small" key={techIndex}>
+                            {getTechIcon(tech)} <span className="tech-name">{tech}</span>
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -303,9 +343,17 @@ const Freelance = () => {
           </div>
           
           <div className="text-center mt-5">
-            <a href="https://github.com/Sharan630" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+            <motion.a 
+              href="https://github.com/Sharan630" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-primary btn-lg"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaGithub className="me-2" />
               See More on GitHub
-            </a>
+            </motion.a>
           </div>
         </motion.div>
       </div>
