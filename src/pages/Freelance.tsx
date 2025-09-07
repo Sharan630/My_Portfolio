@@ -164,52 +164,52 @@ const Freelance = () => {
           viewport={{ once: true }}
           className="text-center mb-5"
         >
-          <h2 className="section-title gradient-text fw-bold">Freelance Projects</h2>
+          <h2 className="section-title gradient-text fw-bold fs-3 fs-md-2">Freelance Projects</h2>
           <div className="title-underline"></div>
-          <p className="lead col-md-8 mx-auto mb-4">
+          <p className="lead col-md-8 mx-auto mb-3 mb-md-4 small">
             Real-world applications built for diverse clients across various industries
           </p>
           
           {/* Stats Cards */}
-          <div className="row g-3 mb-5">
-            <div className="col-md-3 col-6">
+          <div className="row g-2 g-md-3 mb-4 mb-md-5">
+            <div className="col-6 col-md-3">
               <motion.div 
-                className="stat-card glass-card p-3"
+                className="stat-card glass-card p-2 p-md-3"
                 whileHover={{ y: -5, scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <h4 className="stat-number gradient-text">{allProjects.length}</h4>
-                <p className="stat-label mb-0">Projects</p>
+                <h4 className="stat-number gradient-text fs-4 fs-md-3">{allProjects.length}</h4>
+                <p className="stat-label mb-0 small">Projects</p>
               </motion.div>
             </div>
-            <div className="col-md-3 col-6">
+            <div className="col-6 col-md-3">
               <motion.div 
-                className="stat-card glass-card p-3"
+                className="stat-card glass-card p-2 p-md-3"
                 whileHover={{ y: -5, scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <h4 className="stat-number gradient-text">4</h4>
-                <p className="stat-label mb-0">Industries</p>
+                <h4 className="stat-number gradient-text fs-4 fs-md-3">4</h4>
+                <p className="stat-label mb-0 small">Industries</p>
               </motion.div>
             </div>
-            <div className="col-md-3 col-6">
+            <div className="col-6 col-md-3">
               <motion.div 
-                className="stat-card glass-card p-3"
+                className="stat-card glass-card p-2 p-md-3"
                 whileHover={{ y: -5, scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <h4 className="stat-number gradient-text">100%</h4>
-                <p className="stat-label mb-0">Success Rate</p>
+                <h4 className="stat-number gradient-text fs-4 fs-md-3">100%</h4>
+                <p className="stat-label mb-0 small">Success Rate</p>
               </motion.div>
             </div>
-            <div className="col-md-3 col-6">
+            <div className="col-6 col-md-3">
               <motion.div 
-                className="stat-card glass-card p-3"
+                className="stat-card glass-card p-2 p-md-3"
                 whileHover={{ y: -5, scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <h4 className="stat-number gradient-text">24/7</h4>
-                <p className="stat-label mb-0">Support</p>
+                <h4 className="stat-number gradient-text fs-4 fs-md-3">24/7</h4>
+                <p className="stat-label mb-0 small">Support</p>
               </motion.div>
             </div>
           </div>
@@ -224,16 +224,16 @@ const Freelance = () => {
           viewport={{ once: true }}
           ref={featuredProjectsRef}
         >
-          <div className="text-center mb-5">
-            <h3 className="all-projects-title mb-3">
+          <div className="text-center mb-4 mb-md-5">
+            <h3 className="all-projects-title mb-2 mb-md-3">
               <span className="gradient-text">🚀 All Projects</span>
             </h3>
             <p className="all-subtitle">Complete portfolio of freelance work</p>
           </div>
           
-          <div className="row g-5 mb-5">
+          <div className="row g-3 g-md-5 mb-4 mb-md-5">
              {allProjects.map((project, index) => (
-               <div className="col-lg-6" key={project.id}>
+               <div className="col-12 col-lg-6" key={project.id}>
                  <motion.div 
                    className="project-card-container"
                    initial={{ opacity: 0, y: 50 }}
@@ -257,14 +257,14 @@ const Freelance = () => {
                      }}
                    >
                   {/* Card Header */}
-                  <div className="card-header mb-3">
+                  <div className="card-header mb-2 mb-md-3">
                     <div className="project-badges">
-                      <span className="category-badge">{project.category}</span>
-                      {project.featured && <span className="featured-badge">⭐ Featured</span>}
+                      <span className="category-badge small">{project.category}</span>
+                      {project.featured && <span className="featured-badge small">⭐ Featured</span>}
                     </div>
                     <div className="project-status">
                       <span className="status-dot"></span>
-                      <span className="status-text">Live</span>
+                      <span className="status-text small">Live</span>
                     </div>
                   </div>
                   
@@ -307,22 +307,22 @@ const Freelance = () => {
                   
                   {/* Project Content */}
                   <div className="project-content">
-                    <div className="project-title-section mb-3">
-                      <h4 className="project-title mb-2">{project.title}</h4>
+                    <div className="project-title-section mb-2 mb-md-3">
+                      <h4 className="project-title mb-1 mb-md-2 fs-5 fs-md-4">{project.title}</h4>
                       <div className="client-info">
                         <span className="client-icon">👤</span>
-                        <span className="client-name">{project.client}</span>
+                        <span className="client-name small">{project.client}</span>
                       </div>
                     </div>
                     
-                    <p className="project-description mb-4">{project.description}</p>
+                    <p className="project-description mb-3 mb-md-4 small">{project.description}</p>
                     
                     <div className="tech-stack-section">
-                      <h6 className="tech-title mb-3">Technologies Used</h6>
+                      <h6 className="tech-title mb-2 mb-md-3 small">Technologies Used</h6>
                       <div className="tech-tags-container">
                         {project.technologies.map((tech, techIndex) => (
                           <motion.span 
-                            className="tech-tag highlighted me-2 mb-2" 
+                            className="tech-tag highlighted me-1 me-md-2 mb-1 mb-md-2 small" 
                             key={techIndex}
                             whileHover={{ 
                               scale: 1.1, 
@@ -332,7 +332,7 @@ const Freelance = () => {
                             }}
                             transition={{ duration: 0.3, ease: "easeOut" }}
                           >
-                            <span className="tech-icon me-2">{getTechIcon(tech)}</span>
+                            <span className="tech-icon me-1 me-md-2">{getTechIcon(tech)}</span>
                             <span className="tech-name">{tech}</span>
                           </motion.span>
                         ))}
@@ -341,13 +341,13 @@ const Freelance = () => {
                   </div>
                   
                   {/* Card Footer */}
-                  <div className="card-footer mt-4">
+                  <div className="card-footer mt-3 mt-md-4">
                     <div className="project-meta">
-                      <span className="meta-item me-3">
+                      <span className="meta-item me-2 me-md-3 small">
                         <span className="meta-icon">📅</span>
                         <span className="meta-text">2025</span>
                       </span>
-                      <span className="meta-item">
+                      <span className="meta-item small">
                         <span className="meta-icon">🌐</span>
                         <span className="meta-text">Web App</span>
                       </span>
@@ -361,7 +361,7 @@ const Freelance = () => {
         </motion.div>
         
         {/* Call to Action */}
-        <div className="text-center mt-5">
+        <div className="text-center mt-4 mt-md-5">
           <motion.div
             className="cta-section"
             initial={{ opacity: 0, y: 20 }}
@@ -369,14 +369,14 @@ const Freelance = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h4 className="cta-title mb-3">Interested in Working Together?</h4>
-            <p className="cta-subtitle mb-4">Let's discuss your next project</p>
-            <div className="cta-buttons">
+            <h4 className="cta-title mb-2 mb-md-3 fs-5 fs-md-4">Interested in Working Together?</h4>
+            <p className="cta-subtitle mb-3 mb-md-4 small">Let's discuss your next project</p>
+            <div className="cta-buttons d-flex flex-column flex-md-row justify-content-center gap-2 gap-md-3">
               <motion.a 
                 href="https://github.com/Sharan630" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="btn btn-primary btn-lg me-3"
+                className="btn btn-primary btn-sm btn-md-lg"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -385,7 +385,7 @@ const Freelance = () => {
               </motion.a>
               <motion.a 
                 href="/contact" 
-                className="btn btn-outline-primary btn-lg"
+                className="btn btn-outline-primary btn-sm btn-md-lg"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >

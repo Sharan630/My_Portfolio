@@ -42,7 +42,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
         {/* Brand */}
         <div className="site-brand">
           <Link to="/">
-            <span className="gradient-text fw-bold">Bhogi Sharan</span>
+            <span className="gradient-text fw-bold fs-5 fs-md-4">Bhogi Sharan</span>
           </Link>
         </div>
         

@@ -179,14 +179,14 @@ const Contact = () => {
           className="row mb-5"
         >
           <div className="col-12 text-center">
-            <h2 className="section-title gradient-text fw-bold">Get In Touch</h2>
+            <h2 className="section-title gradient-text fw-bold fs-3 fs-md-2">Get In Touch</h2>
             <div className="title-underline"></div>
-            <p className="lead mt-3 col-md-8 mx-auto">Have a project in mind or want to collaborate? I'm just a message away. Let's create something amazing together!</p>
+            <p className="lead mt-2 mt-md-3 col-md-8 mx-auto small">Have a project in mind or want to collaborate? I'm just a message away. Let's create something amazing together!</p>
           </div>
         </motion.div>
         
         <motion.div 
-          className="row g-5 align-items-stretch"
+          className="row g-3 g-md-5 align-items-stretch"
           variants={containerVariants}
           initial="hidden"
           animate={controls}
@@ -195,59 +195,59 @@ const Contact = () => {
           {/* Contact Information */}
           <motion.div
             variants={itemVariants}
-            className="col-lg-5"
+            className="col-12 col-lg-5"
           >
-            <div className="contact-info p-4 glass-card h-100">
-              <div className="contact-header mb-4">
-                <h3 className="contact-title gradient-text fw-bold">Contact Details</h3>
+            <div className="contact-info p-3 p-md-4 glass-card h-100">
+              <div className="contact-header mb-3 mb-md-4">
+                <h3 className="contact-title gradient-text fw-bold fs-5 fs-md-4">Contact Details</h3>
                 <div className="mini-underline"></div>
-                <p className="mt-3">I'm available for freelance projects, full-time positions, and collaborative opportunities. Let's connect!</p>
+                <p className="mt-2 mt-md-3 small">I'm available for freelance projects, full-time positions, and collaborative opportunities. Let's connect!</p>
               </div>
               
               <div className="contact-details">
                 <motion.div 
-                  className="contact-item d-flex align-items-center mb-4"
+                  className="contact-item d-flex align-items-center mb-3 mb-md-4"
                   whileHover={{ x: 5 }}
                 >
-                  <div className="contact-icon-wrapper me-3">
+                  <div className="contact-icon-wrapper me-2 me-md-3">
                     <FaMapMarkerAlt className="contact-icon" />
                   </div>
                   <div>
-                    <h5 className="m-0 fw-bold">Location</h5>
-                    <p className="m-0">Hyderabad, Telangana, India</p>
+                    <h5 className="m-0 fw-bold small">Location</h5>
+                    <p className="m-0 small">Hyderabad, Telangana, India</p>
                   </div>
                 </motion.div>
                 
                 <motion.div 
-                  className="contact-item d-flex align-items-center mb-4"
+                  className="contact-item d-flex align-items-center mb-3 mb-md-4"
                   whileHover={{ x: 5 }}
                 >
-                  <div className="contact-icon-wrapper me-3">
+                  <div className="contact-icon-wrapper me-2 me-md-3">
                     <FaEnvelope className="contact-icon" />
                   </div>
                   <div>
-                    <h5 className="m-0 fw-bold">Email</h5>
-                    <p className="m-0">sharansai047@gmail.com</p>
+                    <h5 className="m-0 fw-bold small">Email</h5>
+                    <p className="m-0 small">sharansai047@gmail.com</p>
                   </div>
                 </motion.div>
                 
                 <motion.div 
-                  className="contact-item d-flex align-items-center mb-4"
+                  className="contact-item d-flex align-items-center mb-3 mb-md-4"
                   whileHover={{ x: 5 }}
                 >
-                  <div className="contact-icon-wrapper me-3">
+                  <div className="contact-icon-wrapper me-2 me-md-3">
                     <FaPhoneAlt className="contact-icon" />
                   </div>
                   <div>
-                    <h5 className="m-0 fw-bold">Phone</h5>
-                    <p className="m-0">+91 6309586437</p>
+                    <h5 className="m-0 fw-bold small">Phone</h5>
+                    <p className="m-0 small">+91 6309586437</p>
                   </div>
                 </motion.div>
               </div>
               
-              <div className="social-links mt-5">
-                <h5 className="mb-3 fw-bold">Connect With Me</h5>
-                <div className="d-flex gap-3">
+              <div className="social-links mt-4 mt-md-5">
+                <h5 className="mb-2 mb-md-3 fw-bold small">Connect With Me</h5>
+                <div className="d-flex gap-2 gap-md-3">
                   <motion.a 
                     href="https://www.linkedin.com/in/bhogi-sharan-sai-b1009834b/" 
                     className="social-link" 
@@ -255,7 +255,7 @@ const Contact = () => {
                     whileHover={{ y: -5, scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <FaLinkedin size={24} />
+                    <FaLinkedin size={20} />
                   </motion.a>
                   <motion.a 
                     href="https://github.com/Sharan630" 
@@ -264,7 +264,7 @@ const Contact = () => {
                     whileHover={{ y: -5, scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <FaGithub size={24} />
+                    <FaGithub size={20} />
                   </motion.a>
                   <motion.a 
                     href="#" 
@@ -273,7 +273,7 @@ const Contact = () => {
                     whileHover={{ y: -5, scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <FaTwitter size={24} />
+                    <FaTwitter size={20} />
                   </motion.a>
                   
                   {/* View Submissions Button */}
@@ -296,11 +296,11 @@ const Contact = () => {
           {/* Contact Form */}
           <motion.div
             variants={itemVariants}
-            className="col-lg-7"
+            className="col-12 col-lg-7"
           >
-            <div className="contact-form-container p-4 glass-card h-100">
-              <h3 className="contact-title gradient-text fw-bold mb-4">Send Me a Message</h3>
-              <div className="mini-underline mb-4"></div>
+            <div className="contact-form-container p-3 p-md-4 glass-card h-100">
+              <h3 className="contact-title gradient-text fw-bold mb-3 mb-md-4 fs-5 fs-md-4">Send Me a Message</h3>
+              <div className="mini-underline mb-3 mb-md-4"></div>
               
               {submitted ? (
                 <motion.div 
@@ -388,10 +388,10 @@ const Contact = () => {
                       </div>
                     </div>
                     
-                    <div className="col-12 text-center mt-4">
+                    <div className="col-12 text-center mt-3 mt-md-4">
                       <motion.button
                         type="submit"
-                        className="btn btn-gradient btn-lg px-5 py-3"
+                        className="btn btn-gradient btn-md btn-lg px-4 px-md-5 py-2 py-md-3"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >

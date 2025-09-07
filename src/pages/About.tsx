@@ -16,20 +16,20 @@ const About = () => {
           viewport={{ once: true }}
           className="row"
         >
-          <div className="col-12 text-center mb-5">
-            <h2 className="section-title gradient-text fw-bold">About Me</h2>
+          <div className="col-12 text-center mb-4 mb-md-5">
+            <h2 className="section-title gradient-text fw-bold fs-3 fs-md-2">About Me</h2>
             <div className="title-underline"></div>
-            <p className="lead col-md-8 mx-auto about-tagline">Passionate about creating digital experiences that make a difference</p>
+            <p className="lead col-md-8 mx-auto about-tagline small">Passionate about creating digital experiences that make a difference</p>
           </div>
         </motion.div>
 
-        <div className="row align-items-center gx-5">
+        <div className="row align-items-center gx-3 gx-md-5">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="col-lg-5 mb-5 mb-lg-0"
+            className="col-lg-5 mb-4 mb-lg-0"
           >
             <div className="about-image-wrapper">
               <div className="about-image-container">
@@ -66,74 +66,74 @@ const About = () => {
             viewport={{ once: true }}
             className="col-lg-7"
           >
-            <div className="about-content glass-card p-4 p-lg-5">
-              <div className="d-flex align-items-center mb-4">
-                <div className="about-icon-container me-3">
+            <div className="about-content glass-card p-3 p-md-4 p-lg-5">
+              <div className="d-flex align-items-center mb-3 mb-md-4">
+                <div className="about-icon-container me-2 me-md-3">
                   <FaUserAlt className="about-icon" />
                 </div>
-                <h3 className="mb-0">Full Stack Web Developer</h3>
+                <h3 className="mb-0 fs-5 fs-md-4">Full Stack Web Developer</h3>
               </div>
               
-              <p className="lead mb-4">
+              <p className="lead mb-3 mb-md-4 small">
                 Hello! I'm Bhogi Sharan Sai, a passionate Full Stack Web Developer with expertise in modern web technologies and blockchain development.
               </p>
               
-              <p className="mb-4">
+              <p className="mb-3 mb-md-4 small">
                 I specialize in building responsive and user-friendly web applications using React.js and Node.js. My experience extends to Web3 development on the Internet Computer, including blockchain technology and token contract development.
               </p>
               
-              <p className="mb-4">
+              <p className="mb-3 mb-md-4 small">
                 I'm proficient in frontend technologies like HTML5, CSS3, JavaScript ES6, and React, as well as backend technologies including Node.js, Express.js, and databases like SQL and PostgreSQL. I'm constantly learning and exploring new technologies to enhance my skills.
               </p>
             </div>
             
-            <div className="row mt-5 g-4">
-              <div className="col-md-6">
+            <div className="row mt-4 mt-md-5 g-3 g-md-4">
+              <div className="col-12 col-md-6">
                 <motion.div 
-                  className="about-info-box glass-card p-4"
+                  className="about-info-box glass-card p-3 p-md-4"
                   whileHover={{ y: -10, boxShadow: "0 15px 30px rgba(0,0,0,0.1)" }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="d-flex align-items-center mb-3">
-                    <FaGraduationCap className="info-icon me-3" />
-                    <h5 className="fw-bold mb-0">Education</h5>
+                  <div className="d-flex align-items-center mb-2 mb-md-3">
+                    <FaGraduationCap className="info-icon me-2 me-md-3" />
+                    <h5 className="fw-bold mb-0 fs-6 fs-md-5">Education</h5>
                   </div>
                   <ul className="list-unstyled">
-                    <li className="mb-3">
-                      <p className="mb-0 fw-bold">Computer Science</p>
-                      <p className="mb-0 info-text">IIIT-Vadodara - International Campus Diu (IIITV-ICD)</p>
+                    <li className="mb-2 mb-md-3">
+                      <p className="mb-0 fw-bold small">Computer Science</p>
+                      <p className="mb-0 info-text small">IIIT-Vadodara - International Campus Diu (IIITV-ICD)</p>
                     </li>
                   </ul>
                 </motion.div>
               </div>
               
-              <div className="col-md-6">
+              <div className="col-12 col-md-6">
                 <motion.div 
-                  className="about-info-box glass-card p-4"
+                  className="about-info-box glass-card p-3 p-md-4"
                   whileHover={{ y: -10, boxShadow: "0 15px 30px rgba(0,0,0,0.1)" }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="d-flex align-items-center mb-3">
-                    <FaBriefcase className="info-icon me-3" />
-                    <h5 className="fw-bold mb-0">Experience</h5>
+                  <div className="d-flex align-items-center mb-2 mb-md-3">
+                    <FaBriefcase className="info-icon me-2 me-md-3" />
+                    <h5 className="fw-bold mb-0 fs-6 fs-md-5">Experience</h5>
                   </div>
                   <ul className="list-unstyled">
-                    <li className="mb-3">
-                      <p className="mb-0 fw-bold">Freelance Web Developer</p>
-                      <p className="mb-0 info-text">Various Clients (Present)</p>
+                    <li className="mb-2 mb-md-3">
+                      <p className="mb-0 fw-bold small">Freelance Web Developer</p>
+                      <p className="mb-0 info-text small">Various Clients (Present)</p>
                       <p className="mb-0 small text-muted">Worked on many real-world applications</p>
                     </li>
-                    <li className="mb-3">
-                      <p className="mb-0 fw-bold">Development Team Lead</p>
-                      <p className="mb-0 info-text">Franean Technologies (August 2025 - Present)</p>
+                    <li className="mb-2 mb-md-3">
+                      <p className="mb-0 fw-bold small">Development Team Lead</p>
+                      <p className="mb-0 info-text small">Franean Technologies (August 2025 - Present)</p>
                     </li>
-                    <li className="mb-3">
-                      <p className="mb-0 fw-bold">Web Developer</p>
-                      <p className="mb-0 info-text">Franean Technologies (May 2025 - July 2025)</p>
+                    <li className="mb-2 mb-md-3">
+                      <p className="mb-0 fw-bold small">Web Developer</p>
+                      <p className="mb-0 info-text small">Franean Technologies (May 2025 - July 2025)</p>
                     </li>
-                    <li className="mb-3">
-                      <p className="mb-0 fw-bold">Full Stack Development Intern</p>
-                      <p className="mb-0 info-text">CodTech IT Solutions (Feb 2025 - April 2025)</p>
+                    <li className="mb-2 mb-md-3">
+                      <p className="mb-0 fw-bold small">Full Stack Development Intern</p>
+                      <p className="mb-0 info-text small">CodTech IT Solutions (Feb 2025 - April 2025)</p>
                     </li>
                   </ul>
                 </motion.div>
