@@ -302,7 +302,7 @@ const Skills = () => {
                   <h3>Web Developer</h3>
                   <p className="company-name">Franean Technologies</p>
                   <p>
-                    Developed and maintained web applications for Franean Lubricants' digital presence. Built responsive user interfaces and integrated backend services. Collaborated with cross-functional teams to deliver high-quality web solutions that enhanced the company's online presence and customer engagement.
+                    Developed and maintained web applications for digital presence. Built responsive user interfaces and integrated backend services. Collaborated with cross-functional teams to deliver high-quality web solutions that enhanced the company's online presence and customer engagement.
                   </p>
                   <div className="timeline-tags">
                     <span className="tag">React</span>

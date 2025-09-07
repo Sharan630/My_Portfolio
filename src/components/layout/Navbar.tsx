@@ -32,6 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
     { path: '/about', label: 'About' },
     { path: '/skills', label: 'Skills' },
     { path: '/projects', label: 'Projects' },
+    { path: '/freelance', label: 'Freelance Projects' },
     { path: '/contact', label: 'Contact' }
   ];
 
