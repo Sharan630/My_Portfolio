@@ -307,19 +307,20 @@ const Freelance = () => {
                     
                     <div className="tech-stack-section">
                       <h6 className="tech-title mb-3">Technologies Used</h6>
-                      <div className="tech-tags">
+                      <div className="tech-tags-container">
                         {project.technologies.map((tech, techIndex) => (
                           <motion.span 
-                            className="tech-tag" 
+                            className="tech-tag highlighted me-2 mb-2" 
                             key={techIndex}
                             whileHover={{ 
-                              scale: 1.08, 
-                              y: -2,
-                              boxShadow: "0 4px 12px rgba(0,0,0,0.2)"
+                              scale: 1.1, 
+                              y: -3,
+                              boxShadow: "0 8px 20px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1)",
+                              backgroundColor: "rgba(255,255,255,0.1)"
                             }}
-                            transition={{ duration: 0.2 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
                           >
-                            {getTechIcon(tech)}
+                            <span className="tech-icon me-2">{getTechIcon(tech)}</span>
                             <span className="tech-name">{tech}</span>
                           </motion.span>
                         ))}
@@ -332,7 +333,7 @@ const Freelance = () => {
                     <div className="project-meta">
                       <span className="meta-item me-3">
                         <span className="meta-icon">📅</span>
-                        <span className="meta-text">2024</span>
+                        <span className="meta-text">2025</span>
                       </span>
                       <span className="meta-item">
                         <span className="meta-icon">🌐</span>
